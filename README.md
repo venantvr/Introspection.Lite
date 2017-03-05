@@ -8,7 +8,7 @@ This library allows to transfer, with a fluent syntax, objects and their depende
 
 Example:
 
-Imagine you built by introspection a list of all classes and namespaces built in your assemblies. Each namespace contains a set of classes. For persisting this network of dependencies, you should be able to write it as it figures below.
+Imagine you built by introspection a list of all classes and namespaces embedded in your assemblies. Each namespace contains a set of classes. For persisting this network of dependencies, you should be able to write it as it figures below.
 
     using (var client = new GraphClient(new Uri(neo4jServerUrl), neo4jUserName, neo4jUserPassword))
     {
@@ -22,10 +22,10 @@ Imagine you built by introspection a list of all classes and namespaces built in
         }
     }
 	
-The "fluent" variable is the runtime built upon the *Neo4jClient.Extension* library. You have to specify the *DomainMapping* object that figures how your entities will map the the nodes.
+The *fluent* variable is the runtime built upon the *Neo4jClient.Extension* library. You have to specify the *DomainMapping* object that figures how your entities will map to the nodes.
 
 You will then specify the *Newtonsoft Contract Resolver*, used to define how C# objects and properties will be serialized into JSON. 
 
-Finally, you need to specify the *Hash Processor* that will help you to define what criteria you need to define an identity to be able to merge similar objects into the graph.
+Finally, you need to specify the *Hash Processor* that will help you to define what criteria are needed to resolve an identity for your nodes, to be able to merge similar objects into the graph.
 
 The relationship is defined through an expression builder, and the *Encypher* method will do the magic.
