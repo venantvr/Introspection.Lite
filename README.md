@@ -1,6 +1,6 @@
 # Introspection.Lite
 
-Goal: to push a complex graph of entities into a Neo4j database by matching objects with nodes, and navigation properties with relations.
+Goal: to be able to push a complex graph of entities into a Neo4j database by matching objects with nodes, and navigation properties with relations.
 
 This project is based on the official *Neo4jClient* API and the *Neo4jClient.Extension* extension library.
 
