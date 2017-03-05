@@ -41,7 +41,7 @@ namespace Introspection.Tests
         [TestMethod]
         public void DumpAsNeo4J_11()
         {
-            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, to);
+            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, @to);
 
             Fluent.CypherObject(ListOfMethodsThatLinksToAnotherSingleOne, new RelationFactory<SimpleMethod, SimpleMethod>(entity => new List<SimpleMethod>() /*.Calls*/, callsRelationshipFactory));
 
@@ -55,7 +55,7 @@ namespace Introspection.Tests
         [TestMethod]
         public void DumpAsNeo4J_12()
         {
-            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, to);
+            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, @to);
 
             Fluent.CypherObject(ListOfMethodsThatLinksToAnotherSingleOne, new RelationFactory<SimpleMethod, SimpleMethod>(entity => entity.Calls, callsRelationshipFactory));
 
@@ -69,7 +69,7 @@ namespace Introspection.Tests
         [TestMethod]
         public void DumpAsNeo4J_13()
         {
-            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, to);
+            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, @to);
 
             Fluent.CypherObject(ListOfMethodsThatLinksToAnotherOneButWithADuplicate, new RelationFactory<SimpleMethod, SimpleMethod>(entity => entity.Calls, callsRelationshipFactory));
 
@@ -85,9 +85,9 @@ namespace Introspection.Tests
         {
             var entities = OneMethodThatLinksToTwoOthersWithTypesAndNamespaces;
 
-            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, to);
-            Func<string, string, BaseRelationship> typeRelationshipFactory = (from, to) => new TypeRelationship(@from, to);
-            Func<string, string, BaseRelationship> namespaceRelationshipFactory = (from, to) => new NamespaceRelationship(@from, to);
+            Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, @to);
+            Func<string, string, BaseRelationship> typeRelationshipFactory = (from, to) => new TypeRelationship(@from, @to);
+            Func<string, string, BaseRelationship> namespaceRelationshipFactory = (from, to) => new NamespaceRelationship(@from, @to);
 
             Fluent
                 .CypherObject(entities, new RelationFactory<SimpleMethod, SimpleMethod>(entity => entity.Calls, callsRelationshipFactory))

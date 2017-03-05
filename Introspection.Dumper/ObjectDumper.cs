@@ -28,9 +28,9 @@ namespace Introspection.Dumper
             {
                 using (var fluent = new ProxyCypherFluentBuilder<DomainMapping, PreserveCaseContractResolver, Md5HashProcessor>(client).Build())
                 {
-                    Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, to);
-                    Func<string, string, BaseRelationship> typeRelationshipFactory = (from, to) => new TypeRelationship(@from, to);
-                    Func<string, string, BaseRelationship> namespaceRelationshipFactory = (from, to) => new NamespaceRelationship(@from, to);
+                    Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, @to);
+                    Func<string, string, BaseRelationship> typeRelationshipFactory = (from, to) => new TypeRelationship(@from, @to);
+                    Func<string, string, BaseRelationship> namespaceRelationshipFactory = (from, to) => new NamespaceRelationship(@from, @to);
 
                     fluent
                         //.Encypher(entities, entity => entity.Calls, callsRelationshipFactory)
