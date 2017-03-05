@@ -22,10 +22,12 @@ Imagine you built by introspection a list of all classes and namespaces embedded
         }
     }
 	
-The *fluent* variable is the runtime built upon the *Neo4jClient.Extension* library. You have to specify the *DomainMapping* object that figures how your entities will map to the nodes.
+The *fluent* variable is the class built upon the *Neo4jClient.Extension* library. You have to specify the *DomainMapping* object that figures how your entities will map to the nodes.
 
 You will then specify the *Newtonsoft Contract Resolver*, used to define how C# objects and properties will be serialized into JSON. 
 
 Finally, you need to specify the *Hash Processor* that will help you to define what criteria are needed to resolve an identity for your nodes, to be able to merge similar objects into the graph.
 
 The relationship is defined through an expression builder, and the *Encypher* method will do the magic.
+
+**TODO**: put all that stuff into Nuget...
