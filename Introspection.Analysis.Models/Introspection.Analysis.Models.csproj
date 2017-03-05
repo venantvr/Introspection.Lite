@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{650F58B1-824D-4B08-923A-659BFDD6004B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Introspection.Analysis.Models</RootNamespace>
+    <AssemblyName>Introspection.Analysis.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.4\lib\net45\Mono.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.4\lib\net45\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Introspection\Analysis\Models\AssemblyResolver.cs" />
+    <Compile Include="Introspection\Analysis\Models\Collections\AssemblyCollection.cs" />
+    <Compile Include="Introspection\Analysis\Models\AssemblyFileInfo.cs" />
+    <Compile Include="Introspection\Analysis\Models\AssemblyTuple.cs" />
+    <Compile Include="Introspection\Analysis\Models\BaseClearHash.cs" />
+    <Compile Include="Introspection\Analysis\Models\Collections\BaseCollection.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfAssembly.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfCache.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfEvent.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfField.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfMember.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfMethod.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfNamespace.cs" />
+    <Compile Include="Introspection\Analysis\Models\Artefacts\BfType.cs" />
+    <Compile Include="Introspection\Analysis\Models\Collections\EventCollection.cs" />
+    <Compile Include="Introspection\Analysis\Models\ExtensionsMethods.cs" />
+    <Compile Include="Introspection\Analysis\Models\Collections\FieldCollection.cs" />
+    <Compile Include="Introspection\Analysis\Models\ModelFile.cs" />
+    <Compile Include="Introspection\Analysis\Models\Collections\MethodCollection.cs" />
+    <Compile Include="Introspection\Analysis\Models\Collections\NamespaceCollection.cs" />
+    <Compile Include="Introspection\Analysis\Models\Collections\TypeCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Exclusions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
