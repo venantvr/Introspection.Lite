@@ -1,6 +1,6 @@
 using Introspection.Dumper.Dto;
-using Introspection.Neo4j.Write.Hash;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Neo4j.Tools.Write.Hash;
 
 namespace Introspection.Tests
 {

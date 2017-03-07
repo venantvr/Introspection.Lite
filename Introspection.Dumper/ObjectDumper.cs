@@ -5,9 +5,9 @@ using System.Linq;
 using Introspection.Dumper.Domain;
 using Introspection.Dumper.Dto;
 using Introspection.Dumper.Relations;
-using Introspection.Neo4j.Write;
-using Introspection.Neo4j.Write.ContractResolver;
-using Introspection.Neo4j.Write.Hash;
+using Neo4j.Tools.Write;
+using Neo4j.Tools.Write.ContractResolver;
+using Neo4j.Tools.Write.Hash;
 using Neo4jClient;
 using Neo4jClient.Extension.Cypher;
 
@@ -28,14 +28,14 @@ namespace Introspection.Dumper
             {
                 using (var fluent = new ProxyCypherFluentBuilder<DomainMapping, PreserveCaseContractResolver, Md5HashProcessor>(client).Build())
                 {
-                    Func<string, string, BaseRelationship> callsRelationshipFactory = (from, to) => new CallsRelationship(@from, @to);
-                    Func<string, string, BaseRelationship> typeRelationshipFactory = (from, to) => new TypeRelationship(@from, @to);
-                    Func<string, string, BaseRelationship> namespaceRelationshipFactory = (from, to) => new NamespaceRelationship(@from, @to);
+                    Func<SimpleMethod, string, SimpleMethod, string, BaseRelationship> callsRelationshipFactory = (fromEntity, from, toEntity, to) => new CallsRelationship(@from, @to);
+                    Func<SimpleMethod, string, SimpleType, string, BaseRelationship> typeRelationshipFactory = (fromEntity, from, toEntity, to) => new TypeRelationship(@from, @to);
+                    Func<SimpleType, string, SimpleNamespace, string, BaseRelationship> namespaceRelationshipFactory = (fromEntity, from, toEntity, to) => new NamespaceRelationship(@from, @to);
 
                     fluent
-                        //.Encypher(entities, entity => entity.Calls, callsRelationshipFactory)
-                        //.Encypher(entities, entity => entity.Type, typeRelationshipFactory);
-                        .Encypher(entities.Select(e => e.Type), entity => entity.Namespace, namespaceRelationshipFactory);
+                        .EncypherWithParameters(entities, entity => entity.Calls, callsRelationshipFactory)
+                        .EncypherWithParameters(entities, entity => entity.Type, typeRelationshipFactory)
+                        .EncypherWithParameters(entities.Select(e => e.Type), entity => entity.Namespace, namespaceRelationshipFactory);
 
                     Console.WriteLine(fluent.DebugQueryText);
 

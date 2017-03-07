@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Serialization;
 
-namespace Introspection.Neo4j.Write.ContractResolver
+namespace Neo4j.Tools.Write.ContractResolver
 {
     public class PreserveCaseContractResolver : DefaultContractResolver
     {

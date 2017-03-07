@@ -1,10 +1,10 @@
 using System;
 using Introspection.Dumper.Domain;
-using Introspection.Neo4j.Write;
-using Introspection.Neo4j.Write.ContractResolver;
-using Introspection.Neo4j.Write.Hash;
-using Introspection.Neo4j.Write.Interfaces;
 using Introspection.Tests.Mock;
+using Neo4j.Tools.Write;
+using Neo4j.Tools.Write.ContractResolver;
+using Neo4j.Tools.Write.Hash;
+using Neo4j.Tools.Write.Interfaces;
 using Neo4jClient.Cypher;
 
 namespace Introspection.Tests

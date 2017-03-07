@@ -1,6 +1,6 @@
 using Introspection.Dumper.Dto;
-using Introspection.Neo4j.Write.ContractResolver;
-using Introspection.Neo4j.Write.Interfaces;
+using Neo4j.Tools.Write.ContractResolver;
+using Neo4j.Tools.Write.Interfaces;
 using Neo4jClient.Extension.Cypher;
 using Newtonsoft.Json.Serialization;
 

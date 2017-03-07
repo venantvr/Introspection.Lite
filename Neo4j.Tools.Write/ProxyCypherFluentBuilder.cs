@@ -1,9 +1,9 @@
-using Introspection.Neo4j.Write.Interfaces;
+using Neo4j.Tools.Write.Interfaces;
 using Neo4jClient;
 using Neo4jClient.Cypher;
 using Newtonsoft.Json.Serialization;
 
-namespace Introspection.Neo4j.Write
+namespace Neo4j.Tools.Write
 {
     public class ProxyCypherFluentBuilder<TDomainMapping, TContractResolver, THashProcessor>
         where TDomainMapping : IDomainMapping, new()

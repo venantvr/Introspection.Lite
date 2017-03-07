@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Introspection.Neo4j.Write.Extensions;
-using Introspection.Neo4j.Write.Hash;
-using Introspection.Neo4j.Write.Interfaces;
+using Neo4j.Tools.Write.Extensions;
+using Neo4j.Tools.Write.Hash;
+using Neo4j.Tools.Write.Interfaces;
 using Neo4jClient.Cypher;
 using Neo4jClient.Extension.Cypher;
 
-namespace Introspection.Neo4j.Write
+namespace Neo4j.Tools.Write
 {
     public class ProxyCypherFluent : IProxyCypherFluent
     {
@@ -78,7 +78,6 @@ namespace Introspection.Neo4j.Write
                 }
                 else
                 {
-                    //_fluentIndex = _fluentIndex + 1;
                     HashDone.Add(hash, ++_fluentIndex);
 
                     index = _fluentIndex;
@@ -118,39 +117,23 @@ namespace Introspection.Neo4j.Write
             entities.ForEach(item =>
                              {
                                  // ReSharper disable once AccessToDisposedClosure
-                                 var fromKey = CreateEntity(item);
+                                 var fromKey = CreateEntity<TFromEndPoint>(item);
 
                                  navigationProperties.ForEach(navigationProperty =>
                                                               {
-                                                                  var relationFactory = navigationProperty?.RelationBuilder;
+                                                                  var relationFactory = navigationProperty?.RelationBuilderWithParameters;
                                                                   navigationProperty?.TargetEntities.Invoke(item).ForEach(c =>
                                                                                                                           {
                                                                                                                               // ReSharper disable once AccessToDisposedClosure
-                                                                                                                              var toKey = CreateEntity(c);
+                                                                                                                              var toKey = CreateEntity<TToEndPoint>(c);
                                                                                                                               // ReSharper disable once AccessToDisposedClosure
-                                                                                                                              CreateRelationship(relationFactory.Invoke(fromKey, toKey));
+                                                                                                                              CreateRelationship<BaseRelationship>(relationFactory.Invoke(null, fromKey, null, toKey));
                                                                                                                           }
                                                                       );
                                                               });
                              });
 
             return this;
-        }
-
-        public IProxyCypherFluent Encypher<TFromEndPoint, TToEndPoint>(IEnumerable<TFromEndPoint> @from, Func<TFromEndPoint, IEnumerable<TToEndPoint>> to, Func<string, string, BaseRelationship> relationshipFactory)
-            where TFromEndPoint : class
-            where TToEndPoint : class
-        {
-            var expression = CypherObject(@from, new RelationFactory<TFromEndPoint, TToEndPoint>(to, relationshipFactory));
-            return expression;
-        }
-
-        public IProxyCypherFluent Encypher<TFromEndPoint, TToEndPoint>(IEnumerable<TFromEndPoint> @from, Func<TFromEndPoint, TToEndPoint> @to, Func<string, string, BaseRelationship> relationshipFactory)
-            where TFromEndPoint : class
-            where TToEndPoint : class
-        {
-            var expression = CypherObject(@from, new RelationFactory<TFromEndPoint, TToEndPoint>(to, relationshipFactory));
-            return expression;
         }
 
         public IProxyCypherFluent EncypherWithParameters<TFromEndPoint, TToEndPoint>(IEnumerable<TFromEndPoint> @from, Func<TFromEndPoint, IEnumerable<TToEndPoint>> to, Func<TFromEndPoint, string, TToEndPoint, string, BaseRelationship> relationshipFactory) where TFromEndPoint : class where TToEndPoint : class

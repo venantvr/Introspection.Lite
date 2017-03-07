@@ -7,8 +7,8 @@
     <ProjectGuid>{56B7DA34-7CC8-4FD2-A9C2-A6B15C77B3EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Introspection.Neo4j.Write</RootNamespace>
-    <AssemblyName>Introspection.Neo4j.Write</AssemblyName>
+    <RootNamespace>Neo4j.Tools.Write</RootNamespace>
+    <AssemblyName>Neo4j.Tools.Write</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

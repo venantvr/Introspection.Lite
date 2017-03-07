@@ -1,4 +1,4 @@
-namespace Introspection.Neo4j.Write
+namespace Neo4j.Tools.Write
 {
     public enum ArtefactType
     {

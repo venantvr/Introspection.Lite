@@ -1,4 +1,4 @@
-﻿namespace Introspection.Neo4j.Write.Interfaces
+﻿namespace Neo4j.Tools.Write.Interfaces
 {
     public interface IHashProcessor
     {

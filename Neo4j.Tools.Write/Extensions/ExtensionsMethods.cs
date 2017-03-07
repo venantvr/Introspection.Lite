@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Introspection.Neo4j.Write.Extensions
+namespace Neo4j.Tools.Write.Extensions
 {
     public static class ExtensionsMethods
     {

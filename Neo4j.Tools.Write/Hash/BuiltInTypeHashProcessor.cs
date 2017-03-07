@@ -3,9 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Cryptography;
-using Introspection.Neo4j.Write.Interfaces;
+using Neo4j.Tools.Write.Interfaces;
 
-namespace Introspection.Neo4j.Write.Hash
+namespace Neo4j.Tools.Write.Hash
 {
     public class BuiltInTypeHashProcessor : IHashProcessor
     {
