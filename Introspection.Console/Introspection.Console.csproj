@@ -35,18 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Neo4jClient, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Neo4jClient.2.0.0.7\lib\net45\Neo4jClient.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Neo4jClient.Extension, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Neo4jClient.Extension.1.0.2\lib\net45\Neo4jClient.Extension.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Neo4jClient.Extension.Attributes, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Neo4jClient.Extension.Attributes.1.0.2\lib\net45\Neo4jClient.Extension.Attributes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
