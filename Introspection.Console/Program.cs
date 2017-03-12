@@ -22,9 +22,9 @@ namespace Introspection.Console
 
                 using (var bfCache = new BfCache(assemblyTuple))
                 {
-                    Func<BfMethod, bool> predicate = m => /*m.IsConstructor == false && m.IsPropertyGetter == false && m.IsPropertySetter == false && m.IsProperty == false &&*/ m.FullName.StartsWith(@"System") == false;
+                    Func<BfMethod, bool> predicate = m => m.FullName.StartsWith(@"System") == false;
 
-                    var simpleMethods = bfCache.Methods // .Skip(2).Take(1)
+                    var simpleMethods = bfCache.Methods
                         .Where(predicate)
                         .Select(m => new SimpleMethod
                                      {
