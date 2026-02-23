@@ -79,3 +79,7 @@ You will then specify the *Newtonsoft Contract Resolver*, used to define how C# 
 Finally, you need to specify the *Hash Processor* that will help you to define what criteria are needed to resolve an identity for your nodes, to be able to merge similar objects into the graph.
 
 The relationship is defined through an expression builder, and the *Encypher* method will do the magic.
+
+## Stack
+
+[![Stack](https://skillicons.dev/icons?i=cs&theme=dark)](https://skillicons.dev)
